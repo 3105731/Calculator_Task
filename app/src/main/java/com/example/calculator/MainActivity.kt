@@ -40,6 +40,12 @@ lateinit var binding: ActivityMainBinding
         binding.div.setOnClickListener {
             prepareoperation(operation.Div)
         }
+        binding.div2.setOnClickListener {
+            prepareoperation(operation.Div2)
+        }
+        binding.negative.setOnClickListener {
+            prepareoperation(operation.Negative)
+        }
         binding.result.setOnClickListener {
       val result=  Docurrentoperation()
             binding.number.text=result.toString()
@@ -48,13 +54,17 @@ lateinit var binding: ActivityMainBinding
 
     private fun Docurrentoperation():Double {
         val secondnumber=binding.number.text.toString().toDouble()
+        val num=-binding.number.text.toString().toDouble()
        return when(currentoperation){
             operation.Plus -> lastnumber+secondnumber
             operation.Minus -> lastnumber-secondnumber
             operation.Mul ->lastnumber*secondnumber
             operation.Div -> lastnumber/secondnumber
+           operation.Negative -> lastnumber+num
+           operation.Div2 -> lastnumber%secondnumber
             null -> 0.0
-        }
+
+       }
     }
 
     fun clearInput(){

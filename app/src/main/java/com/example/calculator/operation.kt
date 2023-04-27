@@ -5,4 +5,6 @@ enum class operation {
     Minus,
     Mul,
     Div,
+    Div2,
+    Negative,
 }
